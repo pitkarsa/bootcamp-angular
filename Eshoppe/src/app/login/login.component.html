@@ -2,16 +2,32 @@
     <div class="col-md-5 mx-auto ">
         <div class="card shadow">
             <h3 class="mx-auto mt-3">Login</h3>
+            <h3>Username: {{ username }}</h3>
+            <h3>Password: {{ password }}</h3>
             <div class=" p-3">
                 <label  class="form-label">Username</label>
-                <input type="email" class="form-control" >
+                <input type="email" class="form-control" 
+                [(ngModel)]="username"
+                required email
+                #usernameInput="ngModel"
+                >
+                {{ usernameInput.errors | json}}
+                <div class="alert alert-danger" 
+                *ngIf="usernameInput.touched && usernameInput.invalid"
+                 rolw="alert">
+                    <span *ngIf="usernameInput.errors?.['required']">Username is compulsory</span>
+                    <span *ngIf="usernameInput.errors?.['email']">Please enter the valid email</span>
+                </div>
             </div>
             <div class=" p-3">
                 <label  class="form-label">Password</label>
-                <input type="password" class="form-control" >
+                <input type="password" class="form-control" 
+                [(ngModel)]="password">
             </div>
             <div class=" p-3">
-                <button class="btn btn-primary">Login</button>
+                <button class="btn btn-primary"
+                (click)="doLogin()"
+                >Login</button>
                 &nbsp;&nbsp;
                 Not a User? Click 
                 <a routerLink="/register">here</a> to Sign Up

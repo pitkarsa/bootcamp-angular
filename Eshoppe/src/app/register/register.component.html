@@ -2,27 +2,63 @@
     <div class="col-md-5 mx-auto ">
         <div class="card shadow">
             <h3 class="mx-auto mt-3">Register</h3>
+            <!-- {{ registerForm.value | json }} <br> -->
+            <!-- {{ fullName.value | json }} error -->
+              <!-- {{fullNameCtrl.value | json}} <br>
+              {{ emailCtrl.value| json}} -->
+            <form [formGroup]="registerForm">
             <div class=" p-3">
-                <label  class="form-label">Username</label>
-                <input type="text" class="form-control" >
+                <label  class="form-label">FullName</label>
+                <input type="text" class="form-control" 
+                formControlName="fullName">
+                <!-- {{fullNameCtrl.errors | json }} -->
+                <div class="alert alert-danger" role="alert"
+                    *ngIf="fullNameCtrl.touched && fullNameCtrl.invalid">
+                    <span>Please enter your Full Name </span>
+                </div>
             </div>
             <div class=" p-3">
                 <label  class="form-label">Email</label>
-                <input type="email" class="form-control" >
+                <input type="email" class="form-control" 
+                formControlName="email">
+                <!-- {{emailCtrl.errors|json}} -->
+                <div class="alert alert-danger" role="alert"
+                    *ngIf="emailCtrl.touched && emailCtrl.invalid">
+                    <span *ngIf="emailCtrl.errors?.['required']">
+                        Please enter your Email </span>
+                    <span *ngIf="emailCtrl.errors?.['email']">
+                        Please enter the valid email</span>
+                </div>
             </div>
             <div class=" p-3">
                 <label  class="form-label">Password</label>
-                <input type="password" class="form-control" >
+                <input type="password" class="form-control"
+                formControlName="password" >
             </div>
             <div class=" p-3">
                 <label  class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" >
+                <input type="password" class="form-control" 
+                formControlName="confirmPassword">
             </div>
+            <!-- <div formGroupName="address">
+                <div class=" p-3">
+                    <label  class="form-label">City</label>
+                    <input type="password" class="form-control" 
+                    formControlName="city">
+                </div>
+                <div class=" p-3">
+                    <label  class="form-label">State</label>
+                    <input type="password" class="form-control" 
+                    formControlName="state">
+                </div>
+            </div> -->
             <div class=" p-3">
-                <button class="btn btn-primary">Register</button>
+                <button class="btn btn-primary"
+                (click)="doRegister()">Register</button>
                 &nbsp;&nbsp;
                 Already a User? Click <a routerLink="/login">here</a> to Sign In
             </div>
+            </form>
         </div>
     </div>
 </div>
