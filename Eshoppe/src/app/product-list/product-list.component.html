@@ -1,1 +1,13 @@
-<p>product-list works!</p>
+<div class="row">
+    <div class="col-md-3 mt-4 " *ngFor="let product of allProducts">
+        <div class="card shadow" style="width: 100%;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="card-text">{{product.brand}}</p>
+              <strong>{{product.price | currency:'INR'}}</strong><br>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    </div>
+</div>

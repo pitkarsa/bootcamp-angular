@@ -1,0 +1,35 @@
+{
+    "products": [
+        {
+            "id":101,
+            "name":"smart watch",
+            "price":5000,
+            "brand":"apple"
+        },
+        {
+            "id":102,
+            "name":"iPhone",
+            "price":100000,
+            "brand":"apple"
+        },
+        {
+            "id":103,
+            "name":"google pixel",
+            "price":95000,
+            "brand":"google"
+        },
+        {
+            "id":104,
+            "name":"headset",
+            "price":7000,
+            "brand":"boat"
+        },
+        {
+            "id":105,
+            "name":"laptop",
+            "price":65000,
+            "brand":"dell"
+        }
+
+    ]
+}
