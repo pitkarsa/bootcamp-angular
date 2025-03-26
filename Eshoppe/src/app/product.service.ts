@@ -26,6 +26,20 @@ export class ProductService {
     return this.http.get<Product[]>('http://localhost:3000/products');
   }
 
-  
+  getProductById(id:any):Observable<Product> {
+    return this.http.get<Product>(
+      `http://localhost:3000/products/${id}`);
+  }
+
+
+
+
+
+
+
+
+  getAllUsers(){
+    return this.http.get('https://dummyjson.com/users');
+  }
 
 }

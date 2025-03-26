@@ -72,6 +72,6 @@ export class HomeComponent {
      
       // this.myObservable1.subscribe(data => console.log('Data: ',data ));
       // this.myObservable2.subscribe({next:num => console.log('received number:', num)   });
-      this.myObservable2.subscribe(num => console.log('received number:', num)   );
+      // this.myObservable2.subscribe(num => console.log('received number:', num)   );
     }
 }

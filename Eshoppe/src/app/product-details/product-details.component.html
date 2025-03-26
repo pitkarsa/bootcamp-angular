@@ -1,0 +1,14 @@
+<h2>Product Details</h2>
+<!-- <button class="btn btn-primary">Product List</button><br><br> -->
+<div class="card">
+    <div class="card-header">
+      {{receivedProduct.name}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{receivedProduct.brand}}</h5>
+      <strong>{{receivedProduct.price| currency:'INR' }}</strong><br>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3"
+  (click)="goToProductList()">Back to Product List</button>

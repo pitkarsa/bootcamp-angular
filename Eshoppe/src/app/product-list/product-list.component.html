@@ -6,7 +6,8 @@
               <h5 class="card-title">{{product.name}}</h5>
               <p class="card-text">{{product.brand}}</p>
               <strong>{{product.price | currency:'INR'}}</strong><br>
-              <a href="#" class="btn btn-primary">Details</a>
+              <!-- url must have two parts: "/products/___" -->
+              <a [routerLink]="['/products',product.id]" class="btn btn-primary">Details</a>
             </div>
         </div>
     </div>
