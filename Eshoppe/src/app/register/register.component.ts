@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -29,8 +30,13 @@ export class RegisterComponent {
     return this.registerForm.get("email") as FormControl;
   }
 
+  constructor(private service:UserService){}
+
   doRegister():void{
-    console.log(this.registerForm.value);    
+    // console.log(this.registerForm.value);   
+    const {fullName, email, password} = this.registerForm.value;
+    this.service.userRegistration(fullName,email, password).subscribe(data=>console.log("registred User:", data)
+    )
   }
 
 }

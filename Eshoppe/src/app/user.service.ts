@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
+import { User } from './user.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +27,7 @@ export class UserService {
 
   isLoggedIn = signal(false);
 
-  constructor(){
+  constructor(private http:HttpClient){
     const val = localStorage.getItem("login");
     if (val){
       this.isLoggedIn.set(true);
@@ -46,4 +49,8 @@ export class UserService {
   // getLoggedInStatus(){
   //   return this.isLoggedIn;
   // }
+
+  userRegistration(fullName:any, email:any, password:any): Observable<User>{
+     return this.http.post<User>('http://localhost:3000/users',{fullName, email, password});
+  }
 }

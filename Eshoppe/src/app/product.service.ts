@@ -20,19 +20,26 @@ export class ProductService {
 
   constructor(private http:HttpClient){}
 
-  getAllProducts() : Observable<Product[]> {    
-    // send the http get request to api
-    // get reqquest responds with Observable object
-    return this.http.get<Product[]>('http://localhost:3000/products');
+  // getAllProducts() : Observable<Product[]> {    
+  //   // send the http get request to api
+  //   // get reqquest responds with Observable object
+  //   return this.http.get<Product[]>('http://localhost:3000/products');
+  // }
+
+  // getProductById(id:any):Observable<Product> {
+  //   return this.http.get<Product>(
+  //     `http://localhost:3000/products/${id}`);
+  // }
+
+
+  // fetching the data from dummyjson.com
+  getAllProducts():Observable<any>{
+   return this.http.get<any>('https://dummyjson.com/products')
   }
 
-  getProductById(id:any):Observable<Product> {
-    return this.http.get<Product>(
-      `http://localhost:3000/products/${id}`);
-  }
-
-
-
+getProductById(id:any){
+  return null;
+}
 
 
 

@@ -1,14 +1,32 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-3 mt-4 " *ngFor="let product of allProducts">
         <div class="card shadow" style="width: 100%;">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{product.name}}</h5>
               <p class="card-text">{{product.brand}}</p>
-              <strong>{{product.price | currency:'INR'}}</strong><br>
+              <strong>{{product.price | currency:'INR'}}</strong><br> -->
               <!-- url must have two parts: "/products/___" -->
-              <a [routerLink]="['/products',product.id]" class="btn btn-primary">Details</a>
+             <!-- <a [routerLink]="['/products',product.id]" class="btn btn-primary">Details</a>
+              <a [routerLink]="['/products','addcart',product.id]" class="ms-4 btn btn-primary">Add To cart</a>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="col-md-3 mt-4 " *ngFor="let product of data.products">
+        <div class="card shadow" style="width: 100%;">
+            <img class="card-img-top" [src]="product.images[0]" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{product.title}}</h5>
+              <p class="card-text">{{product.category}}</p>
+              <strong>{{product.price | currency }}</strong><br>
+              <!-- url must have two parts: "/products/___" -->
+              <!-- <a [routerLink]="['/products',product.id]" class="btn btn-primary">Details</a>
+              <a [routerLink]="['/products','addcart',product.id]" class="ms-4 btn btn-primary">Add To cart</a> -->
             </div>
         </div>
     </div>
 </div>
+

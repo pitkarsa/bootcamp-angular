@@ -17,8 +17,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
       // this.service.getAllProducts().subscribe(data => this.allProducts=data);    
   }
 
+  data: any ; // we are receiving --> {"products":[{},{},...]}
+
   ngOnInit(): void {
-    this.service.getAllProducts().subscribe(data => this.allProducts=data);
+    // this.service.getAllProducts().subscribe(data => this.allProducts=data);
+
+    this.service.getAllProducts().subscribe(data => this.data = data );
 
     // this.mySubscription = this.numbers.subscribe(num => console.log('Received num:', num) )    ;
   }
